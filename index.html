@@ -33,5 +33,30 @@
         </div>
     </div>
 </div>
+
+<script>
+
+ const apikey ="b4ef390acae46009429997b2451335ed"; //Enter your API key here  
+ const apiUrl ="https://api.openweathermap.org/data/2.5/weather?&units=metric&q=Patna";
+
+ async function checkWeather(){
+    const response = await fetch(apiUrl + `&appid=${apikey}`);
+    var data = await response.json();
+
+    console.log(data);
+    
+    document.querySelector(".city").innerText = data.name;//Enter your city name here
+    document.querySelector(".temp").innerText = data.main.temp + "°C";
+    document.querySelector(".humidity").innerText = data.main.humidity;
+    document.querySelector(".wind").innerText = data.wind.speed + "km/h";
+ 
+
+ }
+
+ checkWeather();
+</script>
+
+
+
 </body>
 </html>
